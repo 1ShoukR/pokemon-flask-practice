@@ -7,7 +7,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import Navbar from "../components/Navbar";
-import './index.css'
 
 const store = createStore(applyMiddleware(logger)); 
 
