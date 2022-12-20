@@ -4,6 +4,7 @@ import handleAddToDatabase from "../actions/handleAddToDatabase";
 
 const SearchedPokemon = () => {
     const searchedPokemonData = useSelector((state) => state.pokeReducer.pokemonSearch);
+	const globalUserData = useSelector((state) => state?.pokemonSet?.pokemon);
 return (
 		<div>
 			<div>
@@ -18,7 +19,7 @@ return (
 				    <img src={searchedPokemonData?.sprites?.front_default} alt={`Pokemon image of ${searchedPokemonData?.name}`} />
                 </div>
                 <div>
-                    <button onClick={(e) => handleAddToDatabase(e, searchedPokemonData)}>Add to Database</button>
+                    <button onClick={(e) => handleAddToDatabase(e, searchedPokemonData, globalUserData)}>Add to Database</button>
                 </div>
 		    </div>
             ) : (

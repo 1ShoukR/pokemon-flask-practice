@@ -74,7 +74,7 @@ def login_route():
     }
     with open("session.json", "w") as outfile:
         outfile.write(json.dumps(response, indent=4))
-    return {"username": user_signin.username, "password": user_signin.password, "userAccountData": user_data_response}
+    return {"id": user_signin.id,"username": user_signin.username, "password": user_signin.password, "userAccountData": user_data_response}
 
 
 
