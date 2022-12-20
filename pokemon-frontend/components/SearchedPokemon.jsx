@@ -4,7 +4,7 @@ import handleAddToDatabase from "../actions/handleAddToDatabase";
 
 const SearchedPokemon = () => {
     const searchedPokemonData = useSelector((state) => state.pokeReducer.pokemonSearch);
-  return (
+return (
 		<div>
 			<div>
 				<h1>Results</h1>
@@ -26,7 +26,7 @@ const SearchedPokemon = () => {
                 </>
             )}
 		</div>
-	);
+);
 };
 
 export default SearchedPokemon;
