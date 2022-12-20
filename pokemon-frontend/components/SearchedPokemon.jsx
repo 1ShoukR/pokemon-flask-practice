@@ -18,7 +18,7 @@ return (
 				    <img src={searchedPokemonData?.sprites?.front_default} alt={`Pokemon image of ${searchedPokemonData?.name}`} />
                 </div>
                 <div>
-                    <button onClick={handleAddToDatabase}>Add to Database</button>
+                    <button onClick={(e) => handleAddToDatabase(e, searchedPokemonData)}>Add to Database</button>
                 </div>
 		    </div>
             ) : (

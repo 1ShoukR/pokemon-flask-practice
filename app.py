@@ -78,9 +78,11 @@ def login_route():
 
 
 
-@app.route("/add-pokemon")
+@app.route("/add-pokemon", methods=["POST"])
 def add_pokemon():
-    pass
+    content = request.json
+    print(f"This is content: {content}")
+    return "I am hitting"
 
 
 
