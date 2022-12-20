@@ -3,11 +3,12 @@ const searchForPokemon = async (dispatch, e) => {
 	console.log('I am working');
     let url = `https://pokeapi.co/api/v2/pokemon/${e.target.form[0].value}`;
 	let response = await fetch(url)
-    const json = await response.json()
+    let json = await response.json()
+    console.log("This is json", json)
     if (json = null) {
         window.alert("This Pokemon does not exist.")
     } else {
-        dispatch({type})
+        dispatch({ type: 'SET_SEARCHED_POKEMON' , payload: json});
     }
 }
 
