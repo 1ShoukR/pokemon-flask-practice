@@ -22,6 +22,20 @@ db.init_app(app)
 
 # Routes
 
+@app.before_request
+def before_request():
+    print("before request")
+    print("this is session", session)
+    g.user = None
+    if os.path.isfile("session.json"):
+        print ("File exists and is readable")
+        with open('session.json', 'r') as f:
+            data = json.load(f)
+            g.user = User.query.filter_by(id=data["id"]).first()    
+
+
+
+
 @app.route("/")
 def index():
     # db.create_all()
@@ -42,7 +56,25 @@ def create_account():
 def login_route():
     content = request.json
     print(f"This is content: {content}")
-    return {"message": "Hello I am working!", "Content": content}
+    user_signin = User.query.filter_by(username = content["username"], password = content["password"]).first()
+    get_user_data = Pokemon.query.filter_by(user_id = user_signin.id)
+    user_data_response = []
+    for data in get_user_data:
+        print(data)
+        user_data_response.append({
+            "id": data.id,
+            "title": data.title,
+            "description": data.description
+        })
+    print(user_data_response)
+    response = {
+        "username": user_signin.username,
+        "password": user_signin.password,
+        "id": user_signin.id
+    }
+    with open("session.json", "w") as outfile:
+        outfile.write(json.dumps(response, indent=4))
+    return {"username": user_signin.username, "password": user_signin.password, "userAccountData": user_data_response}
 
 @app.route("/add-pokemon")
 def add_pokemon():
