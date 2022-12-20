@@ -1,7 +1,9 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import searchForPokemon from "../actions/searchForPokemon";
 
 const PokemonSearch = () => {
+    const dispatch = useDispatch()
   return (
     <div>
         <div>
@@ -13,7 +15,7 @@ const PokemonSearch = () => {
                     <input type="pokemon-name" placeholder="Search Pokemon"/>
                 </div>
                 <div>
-                    <button onClick={(e) => searchForPokemon(e)}>Search</button>
+                    <button onClick={(e) => searchForPokemon(dispatch, e)}>Search</button>
                 </div>
             </form>
         </div>

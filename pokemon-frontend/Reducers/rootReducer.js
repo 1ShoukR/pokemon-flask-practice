@@ -1,26 +1,12 @@
-const initialState = {
-    pokemon: []
-}
+import { combineReducers } from "redux";
+import pokemonSearchReducer from "./pokemonSearchReducer";
+import setPokemonReducer from "./setPokemonReducer";
 
 
 
-
-const rootReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case "SET_POKEMON":
-            return {
-                ...state, 
-                pokemon: action.payload
-            }
-        case "REMOVE_POKEMON":
-            return {
-                ...state,
-                pokemon: action.payload
-            }
-        default:
-            return state
-    }
-}   
-
+const rootReducer = combineReducers({
+    pokeReducer:pokemonSearchReducer,
+    pokemonSet: setPokemonReducer
+})
 
 export default rootReducer
