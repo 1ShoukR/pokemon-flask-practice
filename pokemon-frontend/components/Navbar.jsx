@@ -13,7 +13,8 @@ return (
 				<li className="navbar-links">
 					<Link to="/">Home</Link>
 					<Link to="/create_account">Create Account</Link>
-                    <p>Welcome {globalUserData.username}</p>
+					<Link to="/login">Login</Link>
+					<p>Welcome {globalUserData.username}</p>
 				</li>
 			</nav>
 		) : (
@@ -21,7 +22,7 @@ return (
 				<li className="navbar-links">
 					<Link to="/">Home</Link>
 					<Link to="/create_account">Create Account</Link>
-                    <Link to='/login'>Login</Link>
+					<Link to="/login">Login</Link>
 				</li>
 			</nav>
 		)}
