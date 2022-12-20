@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import handleAddToDatabase from "../actions/handleAddToDatabase";
 
 const SearchedPokemon = () => {
     const searchedPokemonData = useSelector((state) => state.pokeReducer.pokemonSearch);
@@ -13,9 +14,13 @@ const SearchedPokemon = () => {
 			</div>
 			{searchedPokemonData?.sprites?.front_default ? (
 			<div>
-				<img src={searchedPokemonData?.sprites?.front_default} alt={`Pokemon image of ${searchedPokemonData?.name}`} />
-			</div>
-
+                <div>
+				    <img src={searchedPokemonData?.sprites?.front_default} alt={`Pokemon image of ${searchedPokemonData?.name}`} />
+                </div>
+                <div>
+                    <button onClick={handleAddToDatabase}>Add to Database</button>
+                </div>
+		    </div>
             ) : (
                 <>
                 </>

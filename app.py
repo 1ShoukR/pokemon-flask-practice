@@ -76,6 +76,8 @@ def login_route():
         outfile.write(json.dumps(response, indent=4))
     return {"username": user_signin.username, "password": user_signin.password, "userAccountData": user_data_response}
 
+
+
 @app.route("/add-pokemon")
 def add_pokemon():
     pass
