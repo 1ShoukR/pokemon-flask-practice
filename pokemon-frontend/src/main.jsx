@@ -5,7 +5,7 @@ import App from './App'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from '../Reducers/setPokemonReducer';
+import rootReducer from '../Reducers/rootReducer';
 import logger from 'redux-logger';
 import Navbar from "../components/Navbar";
 
