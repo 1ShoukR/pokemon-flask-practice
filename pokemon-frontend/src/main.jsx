@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import rootReducer from '../Reducers/rootReducer';
 import logger from 'redux-logger';
 import Navbar from "../components/Navbar";
+import Login from '../components/Login';
 
 const store = createStore(rootReducer, applyMiddleware(logger)); 
 
@@ -17,7 +18,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 			<Navbar />
 			<Routes>
 				<Route path="/" element={<App />} />
-        <Route path="/create_account" element={<CreateAccount/>} />
+        		<Route path="/create_account" element={<CreateAccount/>} />
+				<Route path='/login' element={<Login />} />
 			</Routes>
 		</Provider>
 	</BrowserRouter>

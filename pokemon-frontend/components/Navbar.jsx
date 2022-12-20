@@ -21,6 +21,7 @@ return (
 				<li className="navbar-links">
 					<Link to="/">Home</Link>
 					<Link to="/create_account">Create Account</Link>
+                    <Link to='/login'>Login</Link>
 				</li>
 			</nav>
 		)}
