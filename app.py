@@ -24,10 +24,25 @@ db.init_app(app)
 
 @app.route("/")
 def index():
-    return "I am working"
+    # db.create_all()
+    return "database created"
+
+@app.route("/create-account-confirm", methods=["POST"])
+def create_account():
+    content = request.json
+    print(f"This is content: {content}")
+    create_account = User(username = content["username"], password = content["password"])
+    db.session.add(create_account)
+    db.session.commit()
+    return {"username created": create_account.username, "password created": create_account.password}
 
 
 
+@app.route("/login-confirm", methods=["POST"])
+def login_route():
+    content = request.json
+    print(f"This is content: {content}")
+    return {"message": "Hello I am working!", "Content": content}
 
 @app.route("/add-pokemon")
 def add_pokemon():
