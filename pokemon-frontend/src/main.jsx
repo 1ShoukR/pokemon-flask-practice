@@ -5,10 +5,11 @@ import App from './App'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import rootReducer from '../Reducers/rootReducer';
 import logger from 'redux-logger';
 import Navbar from "../components/Navbar";
 
-const store = createStore(applyMiddleware(logger)); 
+const store = createStore(rootReducer, applyMiddleware(logger)); 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<BrowserRouter>
