@@ -5,7 +5,7 @@ const searchForPokemon = async (dispatch, e) => {
 	let response = await fetch(url)
     let json = await response.json()
     console.log("This is json", json)
-    if (json = null) {
+    if (!json) {
         window.alert("This Pokemon does not exist.")
     } else {
         dispatch({ type: 'SET_SEARCHED_POKEMON' , payload: json});
