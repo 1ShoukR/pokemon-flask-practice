@@ -8,6 +8,8 @@ const removeFromDatabase = async (dispatch, globalUserData, e) => {
 			// title: globalUserData.title,
 			// description: globalUserData,
 			// poke_image: globalUserData.sprites.front_default,
+
+            // need to have id of pokemon, id of user, query the database for pokemon based on the account id, and remove the pokemon 
 		})
 		.then(function (response) {
 			console.log(response);
