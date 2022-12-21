@@ -64,7 +64,8 @@ def login_route():
         user_data_response.append({
             "id": data.id,
             "title": data.title,
-            "description": data.description
+            "description": data.description,
+            "image": data.poke_image
         })
     print(user_data_response)
     response = {
@@ -82,7 +83,19 @@ def login_route():
 def add_pokemon():
     content = request.json
     print(f"This is content: {content}")
-    return "I am hitting"
+    enter_data = Pokemon(user_id=g.user.id, title=content["title"], description=content["description"], poke_image=content["poke_image"])
+    db.session.add(enter_data)
+    db.session.commit()
+    query_data = Pokemon.query.filter_by(user_id = g.user.id).all()
+    table_data = []
+    for data in query_data:
+        table_data.append({
+            "title": data.title,
+            "description": data.description,
+            "poke_image": data.poke_image
+        })
+    print(table_data)
+    return table_data
 
 
 

@@ -16,3 +16,4 @@ class Pokemon(db.Model):
     user_id = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(120), nullable=False)
     description = db.Column(db.Text(), nullable=True)
+    poke_image = db.Column(db.Text(), nullable=True)
