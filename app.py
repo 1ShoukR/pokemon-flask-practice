@@ -99,7 +99,11 @@ def add_pokemon():
 
 
 
-
+@app.route("/remove-pokemon", methods=["POST"])
+def remove_pokemon():
+    content = request.json
+    print("This is content: ", content)
+    return "i am hitting"
 
 
 

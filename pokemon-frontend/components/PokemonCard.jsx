@@ -1,8 +1,11 @@
 import React from "react";
-import axios from "axios"
+import removeFromDatabase from "../actions/removeFromDatabase";
+import { useSelector, useDispatch } from "react-redux";
 
 const PokemonCard = (props) => {
 console.log(`This is props:`, props)
+const dispatch = useDispatch()
+const globalUserData = useSelector((state) => state?.pokemonSet?.pokemon);
 return (
 	<div>
 		<div>
@@ -16,6 +19,9 @@ return (
 						<p key={id}>{item.title}</p>
 						<p key={id}>{item.description}</p>
 						<img key={id} src={item.image} alt={item.title + "image"} />
+					</div>
+					<div>
+						<button onClick={(e) => removeFromDatabase(dispatch, globalUserData, e)}>Remove from Database</button>
 					</div>
 				</>
 					)
