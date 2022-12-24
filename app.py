@@ -103,6 +103,7 @@ def add_pokemon():
 def remove_pokemon():
     content = request.json
     print("This is content: ", content)
+    # delete_pokemon = Pokemon.query.filter_by(id=)
     return "i am hitting"
 
 
